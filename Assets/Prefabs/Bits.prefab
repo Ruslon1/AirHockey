@@ -43,5 +43,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f77c9530226361439f70172eefe1844, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _opponentBit: {fileID: 0}
   _playerBitMover: {fileID: 0}
+  _opponentBit: {fileID: 0}

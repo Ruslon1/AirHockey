@@ -1,6 +1,6 @@
 ﻿
-    public enum Level
-    {
-        Bot,
-        TwoPlayers
-    }
+public enum Level
+{
+    Menu, TwoPlayers,
+    EasyBot, MediumBot, AdvancedBot
+}

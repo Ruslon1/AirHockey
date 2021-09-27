@@ -10,12 +10,15 @@ public class BitInput : MonoBehaviour
 
     [SerializeField] private PlayerBitMover _playerBitMover;
 
-    [Tooltip("Leave null if bot mode")] [SerializeField]
+    [Tooltip("Leave null if bot mode")]
+    [SerializeField]
     private OpponentBitMover _opponentBit;
+    private Level _level;
 
     private void Start()
     {
         _camera = Camera.main;
+        _level = _sceneChecker.GetLevel();
     }
 
     private void Update()
@@ -36,16 +39,17 @@ public class BitInput : MonoBehaviour
 
     private void HandlingAfterTouch(Vector3 worldTouchPosition)
     {
-        if (_sceneChecker.GetLevel() == Level.Bot)
-        {
-            _playerBitMover.Move(worldTouchPosition, false);
-        }
-        else
+        Debug.Log(_level);
+        if (_level == Level.TwoPlayers)
         {
             if (worldTouchPosition.y >= 0)
                 _opponentBit.Move(worldTouchPosition);
             else
                 _playerBitMover.Move(worldTouchPosition, true);
+        }
+        else
+        {
+            _playerBitMover.Move(worldTouchPosition, false);
         }
     }
 }
